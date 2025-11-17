@@ -655,7 +655,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                 text_auto=True
             )
             fig1.update_layout(showlegend=False, height=350)
-            st.plotly_chart(fig1, use_container_width=True)
+            st.plotly_chart(fig1, width='stretch')
 
         with col2:
             df_ratio = df_agg.copy()
@@ -670,7 +670,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                 text_auto=True
             )
             fig2.update_layout(showlegend=False, height=350)
-            st.plotly_chart(fig2, use_container_width=True)
+            st.plotly_chart(fig2, width='stretch')
 
         # ======================================================
         # 🥧 PIE CHART — Placement Visibility (Overall Summary)
@@ -698,7 +698,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
 
         fig_pie.update_layout(height=420)
 
-        st.plotly_chart(fig_pie, use_container_width=True)
+        st.plotly_chart(fig_pie, width='stretch')
 
 
         # ----------------------------------------------------------
@@ -719,7 +719,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                 title="Number of Detections per Brand"
             )
             fig4.update_layout(showlegend=False, height=350)
-            st.plotly_chart(fig4, use_container_width=True)
+            st.plotly_chart(fig4, width='stretch')
 
         with col4:
             avg_dur = df_det.groupby("brand_name")["duration_sec"].mean().reset_index()
@@ -732,7 +732,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                 title="Average Clip Duration per Brand"
             )
             fig5.update_layout(showlegend=False, height=350)
-            st.plotly_chart(fig5, use_container_width=True)
+            st.plotly_chart(fig5, width='stretch')
 
         # ----------------------------------------------------------
         # ROW 4 — CONFIDENCE HISTOGRAM + HEATMAP
@@ -750,7 +750,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                 color="brand_name"
             )
             fig6.update_layout(height=350, showlegend=False)
-            st.plotly_chart(fig6, use_container_width=True)
+            st.plotly_chart(fig6, width='stretch')
 
         with col6:
             df_heat = df_det.groupby(["placement", "brand_name"])["duration_sec"].sum().reset_index()
@@ -763,7 +763,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                 title="Placement vs Duration Heatmap"
             )
             fig7.update_layout(height=350)
-            st.plotly_chart(fig7, use_container_width=True)
+            st.plotly_chart(fig7, width='stretch')
         
 
     # =============== DETECTION TABLE ===============
@@ -801,7 +801,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
         if df_match.empty:
             st.warning("No match details found for this Match ID.")
         else:
-            st.dataframe(df_match, use_container_width=True)
+            st.dataframe(df_match, width='stretch')
             # st.info("Showing match metadata associated with this upload.")
 
 
@@ -822,7 +822,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
             if df.empty:
                 st.warning("No detections for this match yet.")
             else:
-                st.dataframe(df, use_container_width=True)
+                st.dataframe(df, width='stretch')
                 # st.info(f"Showing detections for completed Match ID: **{mid}**")
 
             # -----------------------------------------------
@@ -848,7 +848,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
             if df_agg.empty:
                 st.warning("Brand aggregates not yet generated for this match.")
             else:
-                st.dataframe(df_agg, use_container_width=True)
+                st.dataframe(df_agg, width='stretch')
                 # st.success("Showing brand-level summary aggregate table.")
 
 
