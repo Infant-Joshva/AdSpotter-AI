@@ -1,4 +1,4 @@
-# Jio Hotstar AdVision & Analytics
+# ⚡ Jio Hotstar AdVision & Analytics
 
 AI-powered system for automated advertisement detection, brand visibility analytics, video chunking, PDF report generation, and RAG-based conversational insights — built for analysing cricket match broadcasts and producing sponsor-ready analytics.
 
