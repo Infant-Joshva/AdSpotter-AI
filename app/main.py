@@ -24,6 +24,11 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
 
 
+# Chat Bot
+import google.generativeai as genai
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+
+
 # ==========================================================
 # CONFIG - update these values for your environment
 # ==========================================================
@@ -924,8 +929,100 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
 
     # =============== DETECTION TAB ===============
     with tab_bot:
+        st.caption(f"Curren Match ID is: **📍 {st.session_state.last_completed_match_id}**")
         st.header("📺 AI Chat Bot")
-        st.caption(f"You can ask me anything about this match: **📍 {st.session_state.last_completed_match_id}**")
+        
+        
+        st.caption("Suggestions questions:")
+        st.caption("• Which brand has the highest exposure time?")
+        st.caption("• Which brand has the highest visibility ratio?")
+        st.caption("• Which brand appeared most frequently?")
+
+        # Gemini model
+        model = genai.GenerativeModel("gemini-2.5-flash")
+
+        # SQL cleaner
+        import re
+        def clean_sql(raw):
+            if not raw:
+                return ""
+            q = raw.strip()
+            q = re.sub(r"```sql", "", q, flags=re.IGNORECASE)
+            q = re.sub(r"```", "", q)
+            q = re.sub(r"^sql\s+", "", q, flags=re.IGNORECASE)
+            return q.strip()
+
+        question = st.text_input("Ask anything about this match:")
+
+        if st.button("Ask"):
+            mid = st.session_state.last_completed_match_id
+            if not mid:
+                st.error("Please process a match first.")
+                st.stop()
+
+            # Step 1: Convert user question → SQL
+            prompt = f"""
+            Convert this into a SQL SELECT query.
+            Use ONLY these two tables:
+
+            brand_detections(
+                match_id, brand_name, start_time_sec, end_time_sec,
+                duration_sec, placement, confidence
+            )
+
+            brand_aggregates(
+                match_id, brand_name, total_duration_seconds,
+                visibility_ratio, placement_distribution
+            )
+
+            Always use: match_id = '{mid}'
+            Return only SQL. No explanation.
+
+            User question: {question}
+            """
+
+            sql_raw = model.generate_content(prompt).text
+            sql = clean_sql(sql_raw)
+
+            # Step 2: Run SQL silently
+            try:
+                df = pd.read_sql(text(sql), engine)
+            except Exception as e:
+                st.error(f"Unable to fetch data: {e}")
+                st.stop()
+
+            # Step 3: Ask Gemini to summarize only the final answer
+            summary_prompt = f"""
+            User question: {question}
+
+            SQL result (table content):
+            {df.to_string(index=False)}
+
+            Provide a clear, short answer.
+            Do NOT mention SQL, query, database, or table.
+            """
+
+            answer = model.generate_content(summary_prompt).text
+
+            st.subheader("💬 Here’s your answer!")
+            
+            st.markdown(
+                f"""
+                <div style="
+                    background-color:#1e1e1e;
+                    padding:10px 14px;
+                    border-radius:8px;
+                    border-left:3px solid #4B7BE5;
+                    margin-top:12px;
+                    font-size:14px;
+                    line-height:1.45;
+                    color:#f0f0f0;
+                ">
+                    {answer}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
     # =============== ADMIN TAB ===============
     with tab_ad:
