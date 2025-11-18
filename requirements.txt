@@ -1,0 +1,10 @@
+streamlit
+sqlalchemy
+pandas
+boto3
+ultralytics
+numpy
+opencv-python
+plotly
+reportlab
+google-generativeai
