@@ -17,18 +17,17 @@ Jio AdVision & Analytics detects brand advertisements in match videos, calculate
 
 ## 📁 Folder Structure
 ```
+
 Jio_AdVision_Analytics/
-├── app/
-├── docs/
-│   └── images/
-│       └── dashboard.png
-├── model/
-├── notebooks/
-├── scripts/
-├── testing_video/
-├── requirements.txt
-├── README.md
-└── .gitignore
+├── app/ # Streamlit dashboard UI + backend processing functions
+├── docs/ # source video links
+├── model/ # YOLO models
+├── notebooks/ # Jupyter notebooks for experimentation & testing
+├── testing_video/ # Small test videos used for demo/testing purpose
+├── requirements.txt # Python dependency list
+├── README.md 
+└── .gitignore 
+
 ```
 
 ## 📸 Dashboard Screenshot
@@ -52,7 +51,7 @@ Jio_AdVision_Analytics/
 ## ⚙️ Setup Instructions
 ### 1. Clone Repo
 ```
-git clone https://github.com/<your-username>/Jio_AdVision_Analytics.git
+git clone https://github.com/Infant-Joshva/Jio_AdVision_Analytics.git
 cd Jio_AdVision_Analytics
 ```
 
