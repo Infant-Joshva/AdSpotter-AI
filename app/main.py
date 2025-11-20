@@ -55,7 +55,7 @@ engine = create_engine(DB_URL)
 s3 = boto3.client("s3", region_name=AWS_REGION)
 model = YOLO(MODEL_PATH)
 
-st.set_page_config(page_title="AdSpotter AI – Sports Sponsorship Intelligence", page_icon="🎬", layout="wide")
+st.set_page_config(page_title="AdSpotter AI", page_icon="🎬", layout="wide")
 st.sidebar.title("📌 Navigation")
 menu = st.sidebar.radio("Go to:", ["📄 About", "🧭 Insights & Metrics"])
 
