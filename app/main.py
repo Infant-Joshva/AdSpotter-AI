@@ -57,7 +57,7 @@ model = YOLO(MODEL_PATH)
 
 st.set_page_config(page_title="Jio Hotstar AdVision & Analytics", page_icon="🎬", layout="wide")
 st.sidebar.title("📌 Navigation")
-menu = st.sidebar.radio("Go to:", ["📄 About Project", "🧭 Dashboard (Track / Charts / DB / Admin)"])
+menu = st.sidebar.radio("Go to:", ["📄 About", "🧭 Insights & Metrics"])
 
 
 # ==========================================================
@@ -392,7 +392,7 @@ if "last_completed_match_id" not in st.session_state:
 # ==========================================================
 # PAGE 1 — ABOUT
 # ==========================================================
-if menu == "📄 About Project":
+if menu == "📄 About":
 
     st.markdown("""
     <style>
@@ -490,8 +490,8 @@ if menu == "📄 About Project":
 # ==========================================================
 # PAGE 2 — DASHBOARD
 # ==========================================================
-elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
-    st.title("🧭 Dashboard")
+elif menu == "🧭 Insights & Metrics":
+    st.title("🏏 Exposure Intelligence & Metrics")
     tab_up, tab_ch, tab_tb, tab_bot, tab_ad = st.tabs(["Ingestion & Tracking", "Visual Analytics", "Brand Exposure Insights", "AI Chat Bot","System Controls"]) 
 
     # =============== Upload & Track Tab ===============
@@ -535,7 +535,7 @@ elif menu == "🧭 Dashboard (Track / Charts / DB / Admin)":
                         show=False,
                         save=True,
                         imgsz=480,
-                        vid_stride=50,
+                        vid_stride=10,
                         project="runs/track",
                         name=folder,
                         exist_ok=True
