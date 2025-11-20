@@ -1,5 +1,5 @@
 # ==============================
-# Jio_AdVision_Analytics .gitignore (Updated)
+# Jio_AdVision_Analytics .gitignore 
 # ==============================
 
 # --- Python build/cache files ---
@@ -60,6 +60,13 @@ data/
 !testing_video/*.mp4
 !testing_video/*.mov
 !testing_video/*.avi
+
+# --- EXCEPTION: Allow demo_video folder (even though videos are blocked) ---
+!demo_video/
+!demo_video/*.mp4
+!demo_video/*.mov
+!demo_video/*.avi
+
 
 # --- Roboflow / external dataset cache ---
 roboflow_cache/
