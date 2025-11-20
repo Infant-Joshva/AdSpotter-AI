@@ -31,10 +31,34 @@ Jio_AdVision_Analytics/
 ```
 
 ## 📸 Dashboard Screenshot
-(Add your dashboard screenshot here)
+---
 ```
-![Dashboard Screenshot](docs/images/dashboard.png)
+📄 About Project
 ```
+![About-Page](https://github.com/user-attachments/assets/fe82a1bd-8618-40ad-a804-b0d68185c4d8)
+
+```
+🧭 Insights & Metrics
+```
+![Tracking](https://github.com/user-attachments/assets/c322754c-bce4-4fb7-9aa6-3b114c5f6c60)
+
+<h1></h1>
+
+![Visual Analytics](https://github.com/user-attachments/assets/6324acb2-693d-4c06-950f-014ba9248b80)
+
+<h1></h1>
+
+![Brand Exposure Insights](https://github.com/user-attachments/assets/b46f4dd5-3947-4239-82a6-1dd2682b4c72)
+
+<h1></h1>
+
+![Chat Bot](https://github.com/user-attachments/assets/d6955364-b705-4015-8eae-de014f78d68d)
+
+<h1></h1>
+
+![System Controls](https://github.com/user-attachments/assets/6846bbde-beb4-41ea-8ffe-b8eede788d7a)
+
+---
 
 ## 🛠️ Tech Stack
 - YOLOv8 (Ultralytics)
