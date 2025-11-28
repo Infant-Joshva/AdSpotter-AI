@@ -1,9 +1,9 @@
-# ⚡Jio Hotstar AdVision & Analytics
+# ⚡AdSpotter AI – Sports Sponsorship Intelligence
 
 AI-powered system for automated advertisement detection, brand visibility analytics, video chunking, PDF report generation, and RAG-based conversational insights — built for analysing cricket match broadcasts and producing sponsor-ready analytics.
 
 ## 🚀 Project Overview
-Jio AdVision & Analytics detects brand advertisements in match videos, calculates visibility metrics, classifies placements, extracts brand chunks, stores analytics in an RDS, and exposes dashboards + a RAG-powered chatbot for natural language queries.
+AdSpotter AI – Sports Sponsorship Intelligence detects brand advertisements in match videos, calculates visibility metrics, classifies placements, extracts brand chunks, stores analytics in an RDS, and exposes dashboards + a RAG-powered chatbot for natural language queries.
 
 ## 🎯 Key Features
 - Brand Detection (YOLOv8 – Ultralytics)
