@@ -9,3 +9,5 @@ plotly
 reportlab
 google-generativeai
 Pillow
+psycopg2-binary
+kaleido

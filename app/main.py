@@ -39,7 +39,7 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 DB_URL = st.secrets["DB_URL"]
 BUCKET_NAME = "jioadvision-uploads"
 AWS_REGION = "ap-south-1"
-MODEL_PATH = Path(r"C:\Users\infan\OneDrive\Desktop\Final Project- Jio_AdVision_Analytics\Jio_AdVision_Analytics\model\best1.pt")
+MODEL_PATH = Path(r"C:\Users\Infant Joshva\Desktop\Final Project - AdSpotter-AI\AdSpotter-AI\model\best1.pt")
 FFMPEG_BIN = "ffmpeg"
 
 MERGE_GAP_THRESHOLD = 1.0
