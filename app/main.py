@@ -14,6 +14,7 @@ import numpy as np
 import cv2
 import os
 import math
+
 # Plots
 import plotly.express as px
 import plotly.graph_objects as go
@@ -34,7 +35,7 @@ genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 
 # ==========================================================
-# CONFIG - update these values for your environment
+# CONFIG
 # ==========================================================
 DB_URL = st.secrets["DB_URL"]
 BUCKET_NAME = "jioadvision-uploads"
@@ -130,6 +131,7 @@ with engine.begin() as conn:
 # Utilities
 # ==========================================================
 
+# Generate Brand Aggregates
 def generate_brand_aggregates(match_id, match_start_dt, match_duration):
     """
     Build and insert aggregated rows into brand_aggregates for the given match.
